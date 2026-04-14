@@ -25,7 +25,6 @@ The tool simplifies the given grammar in three main steps:
 2. Open `index.html` in any web browser  
 3. Enter CFG rules and click simplify  
 
-B → b  
 
 ## Author
 Tanya Singh
