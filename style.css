@@ -1,0 +1,266 @@
+/* 🌍 GLOBAL RESET */
+* {
+  box-sizing: border-box;
+}
+
+/* 🌈 BODY BACKGROUND */
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #fdf2ff, #eef2ff, #ecfeff);
+  background-size: 200% 200%;
+  animation: gradientFlow 15s ease infinite;
+  margin: 0;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* ✨ Animated gradient */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ✨ Glow background layer */
+body::before {
+  content: "";
+  position: fixed;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background:
+    radial-gradient(circle at 30% 30%, #c4b5fd33, transparent),
+    radial-gradient(circle at 70% 70%, #67e8f933, transparent);
+  z-index: -1;
+}
+
+/* 📦 Container */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 🏷️ Typography */
+h1 {
+  text-align: center;
+  color: #7c3aed;
+  margin-bottom: 5px;
+}
+
+h2 {
+  color: #5b21b6;
+  font-size: 1.5rem;
+  margin-top: 30px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #71717a;
+  margin-bottom: 25px;
+}
+
+/* ✍️ Input Area */
+.input-wrapper {
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 160px;
+  padding: 15px;
+  border-radius: 16px;
+  border: 2px solid #e4e4e7;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #a78bfa;
+  box-shadow: 0 0 15px rgba(167,139,250,0.2);
+}
+
+.hint {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 8px;
+}
+
+/* 🔘 Buttons Layout */
+.btn-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: white;
+  color: #5b21b6;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* 🌟 Primary Button */
+.btn-primary {
+  background: linear-gradient(135deg, #a78bfa, #67e8f9);
+  color: white;
+  border: none;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* ✨ Glow on primary */
+.btn-primary:hover {
+  box-shadow: 0 0 15px rgba(167,139,250,0.5);
+}
+
+/* ♿ Accessibility focus */
+button:focus,
+textarea:focus {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+/* 📦 Cards */
+.card {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 16px;
+  background: white;
+  border-left: 6px solid #c4b5fd;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  animation: fadeIn 0.5s ease;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* 🎯 Final Result Highlight */
+.final-result {
+  border-left-color: #22d3ee;
+  background: linear-gradient(135deg, #f0fdff, #ecfeff);
+  box-shadow: 0 0 20px rgba(34,211,238,0.2);
+}
+
+/* ✨ Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 💻 Code Block */
+pre {
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 15px;
+  border-radius: 12px;
+  font-family: 'Fira Code', monospace;
+  overflow-x: auto;
+  line-height: 1.5;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* ❌ Error */
+.error {
+  color: #ef4444;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* 📊 Step Indicator */
+.step-indicator {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* 📚 Theory Section */
+.theory {
+  margin-top: 20px;
+  padding: 15px;
+  background: linear-gradient(135deg, #fff7ed, #fefce8);
+  border-radius: 14px;
+}
+
+/* 📦 Theory Layout */
+.theory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 15px;
+}
+
+/* 📄 Theory Cards */
+.theory-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  border-top: 4px solid #fbbf24;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.theory-card:hover {
+  transform: scale(1.02);
+}
+
+/* 📌 Notes */
+.theory-note {
+  margin-top: 12px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* 🙈 Hidden */
+.hidden {
+  display: none;
+}
+
+/* ✨ Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .container {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .btn-group {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CFG Simplification Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <h1>🌸 CFG Simplification Tool</h1>
+    <p class="subtitle">Transform Context-Free Grammars step-by-step ✨</p>
+  </header>
+
+  <!-- Input Section -->
+  <div class="input-wrapper">
+    <label for="grammarInput"><b>Enter your Grammar:</b></label>
+    
+    <textarea 
+      id="grammarInput" 
+      spellcheck="false"
+      placeholder="Example:
+S -> AB | a
+A -> ε
+B -> b"></textarea>
+
+    <p class="hint">
+      Format: One rule per line, use → or ->, variables must be uppercase.
+    </p>
+  </div>
+
+  <!-- Buttons -->
+  <div class="btn-group">
+    <button class="btn-primary" onclick="simplifyGrammar()">✨ Simplify Grammar</button>
+    <button class="btn-secondary" onclick="loadSample()">🎲 Load Sample</button>
+    <button class="btn-info" onclick="toggleTheory()">📚 Theory</button>
+    <button onclick="clearAll()">♻️ Clear</button>
+  </div>
+
+  <!-- Error + Info -->
+  <div id="error" class="error"></div>
+
+  <div class="info-bar">
+    <span id="stepIndicator" class="step-indicator">
+      Waiting for input...
+    </span>
+  </div>
+
+  <!-- Theory Section -->
+  <div id="theoryBox" class="theory hidden">
+    <h3>📚 CFG Simplification Guide</h3>
+
+    <div class="theory-grid">
+
+      <div class="theory-card">
+        <b>1. Null (ε) Removal</b>
+        <p>
+          Eliminates ε-productions while generating equivalent rules
+          to preserve the language.
+        </p>
+      </div>
+
+      <div class="theory-card">
+        <b>2. Unit Removal</b>
+        <p>
+          Removes productions like A → B by replacing them with
+          actual productions of B.
+        </p>
+      </div>
+
+      <div class="theory-card">
+        <b>3. Useless Symbol Removal</b>
+        <p>
+          Removes symbols that cannot generate strings or are not
+          reachable from the start symbol.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="theory-note">
+      <b>⚠️ Order Matters:</b> Null → Unit → Useless
+    </div>
+
+    <div class="theory-note">
+      <b>💡 Note:</b> If the start symbol derives ε, a new start symbol
+      may be introduced in advanced simplification.
+    </div>
+  </div>
+
+  <!-- Output -->
+  <h2>📊 Simplification Steps</h2>
+  <main id="steps"></main>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+/* Clear Button Logic (no change to main JS needed) */
+function clearAll() {
+  document.getElementById("grammarInput").value = "";
+  document.getElementById("steps").innerHTML = "";
+  document.getElementById("error").innerText = "";
+  document.getElementById("stepIndicator").innerText = "Waiting for input...";
+}
+</script>
+
+</body>
+</html>
